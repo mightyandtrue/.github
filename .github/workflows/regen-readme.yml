@@ -1,0 +1,40 @@
+name: Regen org README
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'profile/org.yaml'
+      - 'profile/README.md.j2'
+  workflow_dispatch:  # allow manual trigger from GitHub UI
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: pip install pyyaml jinja2
+
+      - name: Generate README
+        run: python3 profile/generate_readme.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add profile/README.md
+          if git diff --staged --quiet; then
+            echo "No changes — README already up to date."
+          else
+            git commit -m "chore: regen org README from org.yaml [skip ci]"
+            git push
+          fi

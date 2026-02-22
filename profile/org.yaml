@@ -1,0 +1,114 @@
+org:
+  name: Mighty & True
+  tagline: AI-powered strategy and content systems for B2B marketers
+  description: >
+    We build AI-powered tools, content automation, and marketing infrastructure
+    for B2B technology companies — from messaging frameworks to newsletter pipelines
+    to podcast publishing systems.
+
+projects:
+  - name: n8n-automations
+    repo: mightyandtrue/n8n-automations
+    status: live
+    description: >
+      n8n workflow automations — drag-and-drop newsletter pipeline (WF1–WF4),
+      LaunchPod podcast publishing, LinkedIn posts, and client Slack bots.
+    stack: [n8n, JavaScript, Claude Haiku, Claude Sonnet, Supabase, HubSpot, Slack]
+    workflows:
+      - id: SWGrYOyc5UFBq1I6
+        name: WF1 Content Collector
+        schedule: "Every 6 hours"
+      - id: UuZqaNA20LN8UljH
+        name: WF3 Curation & Selection
+        schedule: "Friday 8am CT"
+      - id: mEL08T6c4cdS6BNl
+        name: WF3b Manual Submit
+        trigger: "/submit slash command"
+      - id: ZLNfdkB5weezBtgA
+        name: WF3c Take Command
+        trigger: "/take slash command"
+      - id: Z0TKIhnL1kh1ZwZb
+        name: WF3d Trenches Command
+        trigger: "/trenches slash command"
+      - id: T7z6XBT7oGSeyRLr
+        name: WF3e Quick Add
+        trigger: "/quickadd slash command"
+      - id: JUZaVCeTH5Syza1f
+        name: WF4 Draft Builder
+        schedule: "Sunday 8am CT"
+
+  - name: site-analyzer
+    repo: mightyandtrue/site-analyzer
+    status: live
+    description: SEO/AEO audit tool producing client-ready PDF reports with CWV data and radar charts.
+    stack: [Python 3.9, FastAPI, SSE, Claude Sonnet, PageSpeed API, Chrome headless]
+    url: https://site-analyzer.mightyandtrue.com
+    local: /Users/kevinkerner/sandbox/projects/site-analyzer
+
+  - name: solutions-messaging-os
+    repo: mightyandtrue/solutions-messaging-os
+    status: live
+    description: AI-powered Solutions Messaging Framework builder for M&T strategists with competitive analysis.
+    stack: [Python 3.11, FastAPI, SSE, Claude Sonnet, Supabase, Jinja2]
+    url: https://messaging.mightyandtrue.com
+    local: /Users/kevinkerner/projects/solutions-messaging-os
+
+  - name: marketing-intel
+    repo: mightyandtrue/marketing-intel
+    status: local-only
+    description: Messaging quality analysis + buyer voice matching via review mining (Trustpilot, Reddit, Serper).
+    stack: [Python 3.9, FastAPI, SSE, Claude Haiku, Claude Sonnet, Serper, Supabase]
+    local: /Users/kevinkerner/marketing-intel
+
+  - name: automated-event-outbound
+    repo: mightyandtrue/automated-event-outbound
+    status: in-progress
+    description: Reusable AI-powered event/conference outbound system. First campaign — B2BMX 2026.
+    stack: [n8n, Claude, Supabase, Resend, RB2B]
+    local: /Users/kevinkerner/projects/automated-event-outbound
+
+infrastructure:
+  n8n_host: https://n8n.mightyandtrue.com
+  droplet_ip: 134.199.211.108
+  droplet_ssh: root@134.199.211.108
+  supabase: true
+  # Deploy pattern for Python web apps:
+  # ssh root@134.199.211.108 "cd /opt/apps/<project> && git pull origin main && chown -R www-data:www-data /opt/apps/<project> && systemctl restart <service>"
+  services:
+    site-analyzer:
+      port: 8000
+      service: site-analyzer
+    solutions-messaging-os:
+      port: 8002
+      service: solutions-messaging-os
+
+credentials:
+  # Credential IDs are for n8n — reference by ID in workflow JSON
+  supabase_postgres: 7aFkNSEwXpIE2dhb
+  anthropic: o1AhqhCZygKydavg
+  slack_newsletter: nKGFuxqnpeOOoeM5
+
+ai:
+  default_model: claude-sonnet-4-6
+  haiku_model: claude-haiku-4-5-20251001
+  # Use Haiku for: structured extraction, classification, scoring, JSON tasks
+  # Use Sonnet for: analysis, narrative, reasoning, generation, debugging
+  # Extended thinking: costly — keep togglable via env var, off by default
+
+conventions:
+  env_vars: "Prefix with project identifier: SA_, SMO_, MI_. Always maintain .env.example."
+  secrets: "All secrets in .env (gitignored). Never commit credentials."
+  binding: "Web apps bind to 127.0.0.1. nginx handles SSL + reverse proxy."
+  db_tables: "Table names prefixed by project: smo_, mi_, curated_items. Always include created_at."
+  rls: "Enable Supabase RLS before any table is exposed to a web-facing app."
+  migrations: "Store as numbered SQL files in migrations/."
+  claude_md: "Every repo has a CLAUDE.md with project context, stack, gotchas, and current phase."
+  n8n_gotcha: "Nodes returning 0 items silently stop the chain. Add alwaysOutputData=true on reads."
+
+database:
+  provider: Supabase PostgreSQL
+  shared_instance: true
+  tables:
+    newsletter: [curated_items, editions, cta_rotation, takes]
+    smo: [smo_projects, smo_intake_materials, smo_competitors, smo_frameworks, smo_competitive_matrix, smo_manifestos, smo_edit_history]
+    marketing_intel: [mi_analyses, mi_cache]
