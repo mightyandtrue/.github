@@ -96,4 +96,4 @@ Every repo includes a `CLAUDE.md` with: purpose, current phase, stack, key file 
 ---
 
 *Auto-generated from `profile/org.yaml`. Edit that file — not this one.*
-*Last updated: 2026-02-22 19:44 UTC*
+*Last updated: 2026-02-22 19:46 UTC*
