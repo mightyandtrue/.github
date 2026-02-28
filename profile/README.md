@@ -4,6 +4,7 @@
 
 We build AI-powered tools, content automation, and marketing infrastructure for B2B technology companies — from messaging frameworks to newsletter pipelines to podcast publishing systems.
 
+
 ---
 
 ## Active Projects
@@ -18,35 +19,19 @@ We build AI-powered tools, content automation, and marketing infrastructure for 
 
 ---
 
-## Getting Started (New Developers)
-
-1. Accept the GitHub org invite and enable 2FA on your account
-2. Clone the repo(s) you're working on — access is via the `developers` team
-3. Copy `.env.example` to `.env` and fill in values (get secrets from Kevin)
-4. Each repo has a `CLAUDE.md` — read it before touching code
-
-**Branch workflow:**
-```
-git checkout -b your-name/feature-description
-# make changes
-git push origin your-name/feature-description
-# open a PR against main — 1 approval required to merge
-```
-
-Never push directly to `main`. Branch protection is enforced on all repos.
-
----
-
 ## Infrastructure
 
-| Resource | Details |
-|----------|---------|
+| Resource | Value |
+|----------|-------|
 | n8n | [https://n8n.mightyandtrue.com](https://n8n.mightyandtrue.com) |
+| Droplet | `` (DigitalOcean) |
 | Database | Supabase PostgreSQL (shared instance, project-prefixed tables) |
-| Hosting | DigitalOcean (Python web apps via systemd + Caddy) |
 | Default AI model | `claude-sonnet-4-6` |
 
-Deploy instructions and server details are in each project's `CLAUDE.md`.
+**Deploy pattern (Python web apps):**
+```bash
+ssh  "cd /opt/apps/<project> && git pull origin main && chown -R www-data:www-data /opt/apps/<project> && systemctl restart <service>"
+```
 
 ---
 
@@ -77,7 +62,7 @@ Deploy instructions and server details are in each project's `CLAUDE.md`.
 **Environment variables**
 - Prefix with project identifier: `SA_`, `SMO_`, `MI_`
 - Always maintain `.env.example` with every variable documented
-- Production `.env` on the server only — never in the repo
+- Production `.env` on the droplet only — never in the repo
 
 **Database**
 - Table names prefixed by project (e.g. `smo_projects`, `curated_items`)
@@ -91,12 +76,12 @@ Deploy instructions and server details are in each project's `CLAUDE.md`.
 - n8n API `PUT` requires `settings` field in payload or it returns 400
 
 **Security**
-- Web apps bind to `127.0.0.1` — Caddy handles SSL termination + reverse proxy
+- Web apps bind to `127.0.0.1` — nginx handles SSL termination + reverse proxy
 - RLS enabled on all Supabase tables used by web-facing apps
-- Never commit secrets — use `.env` files (gitignored)
+- All web apps behind Basic Auth before sharing with clients
 
 **CLAUDE.md files**
-Every repo includes a `CLAUDE.md` with: purpose, current phase, stack, key file locations, active constraints, and known gotchas.
+Every repo includes a `CLAUDE.md` with: purpose, current phase, stack, key file locations, active constraints, and known gotchas. This gives AI coding tools persistent context across sessions without re-explaining architecture.
 
 ---
 
@@ -111,4 +96,4 @@ Every repo includes a `CLAUDE.md` with: purpose, current phase, stack, key file 
 ---
 
 *Auto-generated from `profile/org.yaml`. Edit that file — not this one.*
-*Last updated: 2026-02-27*
+*Last updated: 2026-02-28 00:39 UTC*
