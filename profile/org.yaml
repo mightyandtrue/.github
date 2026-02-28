@@ -43,7 +43,6 @@ projects:
     description: SEO/AEO audit tool producing client-ready PDF reports with CWV data and radar charts.
     stack: [Python 3.9, FastAPI, SSE, Claude Sonnet, PageSpeed API, Chrome headless]
     url: https://site-analyzer.mightyandtrue.com
-    local: /Users/kevinkerner/sandbox/projects/site-analyzer
 
   - name: solutions-messaging-os
     repo: mightyandtrue/solutions-messaging-os
@@ -51,42 +50,27 @@ projects:
     description: AI-powered Solutions Messaging Framework builder for M&T strategists with competitive analysis.
     stack: [Python 3.11, FastAPI, SSE, Claude Sonnet, Supabase, Jinja2]
     url: https://messaging.mightyandtrue.com
-    local: /Users/kevinkerner/projects/solutions-messaging-os
 
   - name: marketing-intel
     repo: mightyandtrue/marketing-intel
     status: local-only
     description: Messaging quality analysis + buyer voice matching via review mining (Trustpilot, Reddit, Serper).
     stack: [Python 3.9, FastAPI, SSE, Claude Haiku, Claude Sonnet, Serper, Supabase]
-    local: /Users/kevinkerner/marketing-intel
 
   - name: automated-event-outbound
     repo: mightyandtrue/automated-event-outbound
     status: in-progress
     description: Reusable AI-powered event/conference outbound system. First campaign — B2BMX 2026.
     stack: [n8n, Claude, Supabase, Resend, RB2B]
-    local: /Users/kevinkerner/projects/automated-event-outbound
 
 infrastructure:
   n8n_host: https://n8n.mightyandtrue.com
-  droplet_ip: 134.199.211.108
-  droplet_ssh: root@134.199.211.108
   supabase: true
-  # Deploy pattern for Python web apps:
-  # ssh root@134.199.211.108 "cd /opt/apps/<project> && git pull origin main && chown -R www-data:www-data /opt/apps/<project> && systemctl restart <service>"
   services:
     site-analyzer:
-      port: 8000
       service: site-analyzer
     solutions-messaging-os:
-      port: 8002
       service: solutions-messaging-os
-
-credentials:
-  # Credential IDs are for n8n — reference by ID in workflow JSON
-  supabase_postgres: 7aFkNSEwXpIE2dhb
-  anthropic: o1AhqhCZygKydavg
-  slack_newsletter: nKGFuxqnpeOOoeM5
 
 ai:
   default_model: claude-sonnet-4-6
