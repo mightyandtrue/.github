@@ -1,6 +1,6 @@
 # Mighty & True
 
-> AI-powered strategy and content systems for B2B marketers
+>We are a growth consulting, marketing and systems building agency for tech companies. 
 
 We build AI-powered tools, content automation, and marketing infrastructure for B2B technology companies — from messaging frameworks to newsletter pipelines to podcast publishing systems.
 
