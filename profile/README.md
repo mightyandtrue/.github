@@ -7,7 +7,7 @@ We build AI-powered tools, content automation, and marketing infrastructure for 
 
 ---
 
-## Active Projects
+## Sample Active Projects
 
 | Project | Status | Description |
 |---------|--------|-------------|
