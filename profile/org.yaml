@@ -7,38 +7,26 @@ org:
     to podcast publishing systems.
 
 projects:
-  - name: n8n-automations
-    repo: mightyandtrue/n8n-automations
+  - name: mt-chief-of-staff
+    repo: mightyandtrue/mt-chief-of-staff
     status: live
-    description: >
-      n8n workflow automations — drag-and-drop newsletter pipeline (WF1–WF4),
-      LaunchPod podcast publishing, LinkedIn posts, and client Slack bots.
-    stack: [n8n, JavaScript, Claude Haiku, Claude Sonnet, Supabase, HubSpot, Slack]
-    workflows:
-      - id: SWGrYOyc5UFBq1I6
-        name: WF1 Content Collector
-        schedule: "Every 6 hours"
-      - id: UuZqaNA20LN8UljH
-        name: WF3 Curation & Selection
-        schedule: "Friday 8am CT"
-      - id: mEL08T6c4cdS6BNl
-        name: WF3b Manual Submit
-        trigger: "/submit slash command"
-      - id: ZLNfdkB5weezBtgA
-        name: WF3c Take Command
-        trigger: "/take slash command"
-      - id: Z0TKIhnL1kh1ZwZb
-        name: WF3d Trenches Command
-        trigger: "/trenches slash command"
-      - id: T7z6XBT7oGSeyRLr
-        name: WF3e Quick Add
-        trigger: "/quickadd slash command"
-      - id: JUZaVCeTH5Syza1f
-        name: WF4 Draft Builder
-        schedule: "Sunday 8am CT"
+    description: Personal AI assistant hub-and-spoke on n8n — calendar, tasks, meetings, email, and strategy spokes.
+    stack: [n8n, Claude Sonnet, Supabase, Google Calendar, Google Tasks, Asana]
 
-  - name: site-analyzer
-    repo: mightyandtrue/site-analyzer
+  - name: mt-proofs
+    repo: mightyandtrue/mt-proofs
+    status: live
+    description: Creative proofing platform — client-facing review and approval for M&T deliverables.
+    stack: [Python, Supabase, Claude]
+
+  - name: mt-n8n-automations
+    repo: mightyandtrue/mt-n8n-automations
+    status: live
+    description: n8n workflow automations — drag-and-drop newsletter pipeline (WF1–WF4), LaunchPod podcast publishing, LinkedIn posts, and client Slack bots.
+    stack: [n8n, JavaScript, Claude Haiku, Claude Sonnet, Supabase, HubSpot, Slack]
+
+  - name: mt-site-analyzer
+    repo: mightyandtrue/mt-site-analyzer
     status: live
     description: SEO/AEO audit tool producing client-ready PDF reports with CWV data and radar charts.
     stack: [Python 3.9, FastAPI, SSE, Claude Sonnet, PageSpeed API, Chrome headless]
@@ -50,6 +38,18 @@ projects:
     description: AI-powered Solutions Messaging Framework builder for M&T strategists with competitive analysis.
     stack: [Python 3.11, FastAPI, SSE, Claude Sonnet, Supabase, Jinja2]
     url: https://messaging.mightyandtrue.com
+
+  - name: brandsentry-ai
+    repo: mightyandtrue/brandsentry-ai
+    status: in-progress
+    description: AI-powered brand compliance and QA engine.
+    stack: [Claude, Supabase]
+
+  - name: flowos-api
+    repo: mightyandtrue/flowos-api
+    status: in-progress
+    description: Mighty & True platform APIs — backbone for the FlowOS customer dashboard.
+    stack: [API, Supabase]
 
   - name: marketing-intel
     repo: mightyandtrue/marketing-intel

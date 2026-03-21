@@ -1,19 +1,23 @@
 # Mighty & True
 
->We are a growth consulting, marketing and systems building agency for tech companies. 
+> AI-powered strategy and content systems for B2B marketers
 
 We build AI-powered tools, content automation, and marketing infrastructure for B2B technology companies — from messaging frameworks to newsletter pipelines to podcast publishing systems.
 
 
 ---
 
-## Sample Active Projects
+## Active Projects
 
 | Project | Status | Description |
 |---------|--------|-------------|
-| n8n-automations | `live` | n8n workflow automations — drag-and-drop newsletter pipeline (WF1–WF4), LaunchPod podcast publishing, LinkedIn posts, and client Slack bots. |
-| [site-analyzer](https://site-analyzer.mightyandtrue.com) | `live` | SEO/AEO audit tool producing client-ready PDF reports with CWV data and radar charts. |
+| mt-chief-of-staff | `live` | Personal AI assistant hub-and-spoke on n8n — calendar, tasks, meetings, email, and strategy spokes. |
+| mt-proofs | `live` | Creative proofing platform — client-facing review and approval for M&T deliverables. |
+| mt-n8n-automations | `live` | n8n workflow automations — drag-and-drop newsletter pipeline (WF1–WF4), LaunchPod podcast publishing, LinkedIn posts, and client Slack bots. |
+| [mt-site-analyzer](https://site-analyzer.mightyandtrue.com) | `live` | SEO/AEO audit tool producing client-ready PDF reports with CWV data and radar charts. |
 | [solutions-messaging-os](https://messaging.mightyandtrue.com) | `live` | AI-powered Solutions Messaging Framework builder for M&T strategists with competitive analysis. |
+| brandsentry-ai | `in-progress` | AI-powered brand compliance and QA engine. |
+| flowos-api | `in-progress` | Mighty & True platform APIs — backbone for the FlowOS customer dashboard. |
 | marketing-intel | `local-only` | Messaging quality analysis + buyer voice matching via review mining (Trustpilot, Reddit, Serper). |
 | automated-event-outbound | `in-progress` | Reusable AI-powered event/conference outbound system. First campaign — B2BMX 2026. |
 
@@ -96,4 +100,4 @@ Every repo includes a `CLAUDE.md` with: purpose, current phase, stack, key file 
 ---
 
 *Auto-generated from `profile/org.yaml`. Edit that file — not this one.*
-*Last updated: 2026-02-28 00:39 UTC*
+*Last updated: 2026-03-21 16:24 UTC*
