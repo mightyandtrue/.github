@@ -13,6 +13,8 @@ We build AI-powered tools, content automation, and marketing infrastructure for 
 | n8n | [https://n8n.mightyandtrue.com](https://n8n.mightyandtrue.com) |
 | Droplet | `` (DigitalOcean) |
 | Database | Supabase PostgreSQL (shared instance, project-prefixed tables) |
+| Database -- Front-End | Vercel |
+| Domain Hosting | godaddy |
 | Default AI model | `claude-sonnet-4-6` |
 
 **Deploy pattern (Python web apps):**
