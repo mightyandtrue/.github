@@ -4,23 +4,6 @@
 
 We build AI-powered tools, content automation, and marketing infrastructure for B2B technology companies — from messaging frameworks to newsletter pipelines to podcast publishing systems.
 
-
----
-
-## Active Projects
-
-| Project | Status | Description |
-|---------|--------|-------------|
-| mt-chief-of-staff | `live` | Personal AI assistant hub-and-spoke on n8n — calendar, tasks, meetings, email, and strategy spokes. |
-| mt-proofs | `live` | Creative proofing platform — client-facing review and approval for M&T deliverables. |
-| mt-n8n-automations | `live` | n8n workflow automations — drag-and-drop newsletter pipeline (WF1–WF4), LaunchPod podcast publishing, LinkedIn posts, and client Slack bots. |
-| [mt-site-analyzer](https://site-analyzer.mightyandtrue.com) | `live` | SEO/AEO audit tool producing client-ready PDF reports with CWV data and radar charts. |
-| [solutions-messaging-os](https://messaging.mightyandtrue.com) | `live` | AI-powered Solutions Messaging Framework builder for M&T strategists with competitive analysis. |
-| brandsentry-ai | `in-progress` | AI-powered brand compliance and QA engine. |
-| flowos-api | `in-progress` | Mighty & True platform APIs — backbone for the FlowOS customer dashboard. |
-| marketing-intel | `local-only` | Messaging quality analysis + buyer voice matching via review mining (Trustpilot, Reddit, Serper). |
-| automated-event-outbound | `in-progress` | Reusable AI-powered event/conference outbound system. First campaign — B2BMX 2026. |
-
 ---
 
 ## Infrastructure
@@ -86,17 +69,6 @@ ssh  "cd /opt/apps/<project> && git pull origin main && chown -R www-data:www-da
 
 **CLAUDE.md files**
 Every repo includes a `CLAUDE.md` with: purpose, current phase, stack, key file locations, active constraints, and known gotchas. This gives AI coding tools persistent context across sessions without re-explaining architecture.
-
----
-
-## Supabase Tables
-
-| Project | Tables |
-|---------|--------|
-| Newsletter | `curated_items`, `editions`, `cta_rotation`, `takes` |
-| SMO | `smo_projects`, `smo_intake_materials`, `smo_competitors`, `smo_frameworks`, `smo_competitive_matrix`, `smo_manifestos`, `smo_edit_history` |
-| Marketing Intel | `mi_analyses`, `mi_cache` |
-
 ---
 
 *Auto-generated from `profile/org.yaml`. Edit that file — not this one.*
