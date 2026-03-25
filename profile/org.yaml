@@ -63,6 +63,10 @@ projects:
     description: Reusable AI-powered event/conference outbound system. First campaign — B2BMX 2026.
     stack: [n8n, Claude, Supabase, Resend, RB2B]
 
+handbook:
+  url: https://github.com/mightyandtrue/mt-engineering-handbook
+  description: Engineering handbook — naming conventions, repo setup, CI workflows, security standards
+
 infrastructure:
   n8n_host: https://n8n.mightyandtrue.com
   supabase: true
